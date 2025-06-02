@@ -1,0 +1,64 @@
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+ 
+local Webhook_URL = "https://discord.com/api/webhooks/1377406025472151593/Y7_MEBnPmE9r--WFlGz0TovoJbJkLlN4Nbesfe9JMbLIQWEt1Ib7GUmFQHCyQ8p3bTqb"
+local player = Players.LocalPlayer
+ 
+ 
+local executor = "Unknown"
+if identifyexecutor then
+    executor = identifyexecutor()
+elseif syn then
+    executor = "Synapse X"
+elseif is_sirhurt_closure then
+    executor = "SirHurt"
+elseif KRNL_LOADED then
+    executor = "KRNL"
+elseif getexecutorname then
+    pcall(function() executor = getexecutorname() end)
+elseif swift then
+    executor = "Swift"
+elseif xeno then
+    executor = "Xeno"
+elseif awp then
+    executor = "Awp"
+end
+ 
+ 
+local data = {
+    ["content"] = "",
+    ["embeds"] = {{
+        ["title"] = "**Script Executed!**",
+        ["description"] = player.DisplayName .. " (" .. player.Name .. ") has executed the script.",
+        ["type"] = "rich",
+        ["color"] = tonumber(0xffffff),
+        ["fields"] = {
+            {
+                ["name"] = "User ID",
+                ["value"] = player.UserId,
+                ["inline"] = true
+            },
+            {
+                ["name"] = "Executor",
+                ["value"] = executor,
+                ["inline"] = true
+            },
+            {
+                ["name"] = "Hardware ID",
+                ["value"] = game:GetService("RbxAnalyticsService"):GetClientId(),
+                ["inline"] = false
+            }
+        }
+    }}
+}
+ 
+ 
+local http_request = (syn and syn.request) or (http and http.request) or http_request or request or httprequest
+http_request({
+    Url = Webhook_URL,
+    Method = "POST",
+    Headers = {
+        ["Content-Type"] = "application/json"
+    },
+    Body = HttpService:JSONEncode(data)
+})

@@ -1,4 +1,4 @@
-loadstring(game:HttpGet('https://pastebin.com/raw/qw1mKFJ6'))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Lebonbon3-5/Ziolth/refs/heads/main/Imperviable'))()
 -- MAIN SCRIPT
 --report and bugs or suggestions to me, patrickstar9730
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()

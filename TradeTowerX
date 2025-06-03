@@ -188,7 +188,7 @@ local Toggle = MainTab:CreateToggle({
 })
 
 local Toggle = MainTab:CreateToggle({
-   Name = "TIX FARM use with +1 case and max case opening time:)",
+   Name = "TIX FARM Nerfed:(",
    CurrentValue = false,
    Flag = "Toggle5", 
    Callback = function(Value)
@@ -299,30 +299,6 @@ local args = {
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("StoreActions"):InvokeServer(unpack(args))
 
 
-local autoMaxCaseEnabled = false
--- +1 case opening uppgrade
-local Toggle = UpgradesTab:CreateToggle({
-   Name = "+1 CASES UPGRADE",
-   CurrentValue = false,
-   Flag = "Toggle8",
-   Callback = function(Value)
-      autoMaxCaseEnabled = Value
-
-     
-      if autoMaxCaseEnabled then
-         task.spawn(function()
-            while autoMaxCaseEnabled do
-               local args = {
-	"Upgrade",
-	"PumpkinCases"
-}
-game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("StoreActions"):InvokeServer(unpack(args))
-               task.wait(0.01)
-            end
-         end)
-      end
-   end,
-})
 
 local autoCaseOpeningEnabled = false
 -- upgrade case opening time
@@ -711,3 +687,6 @@ local Toggle = MiscTab:CreateToggle({
       end)
    end,
 })
+
+local DiscountedTab = Window:CreateTab("Discounted", nil)
+local Section = DiscountedTab:CreateSection("Discounted")

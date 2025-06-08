@@ -688,5 +688,26 @@ local Toggle = MiscTab:CreateToggle({
    end,
 })
 
+local Button = MiscTab:CreateButton({
+   Name = "Teleport to chest",
+   Callback = function()
+   local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local hrp = character:WaitForChild("HumanoidRootPart")
+
+local targetCFrame = CFrame.new(
+    449.796631, 126.925446, 155.226151,
+    0, 0, -1,
+    0, 1, 0,
+    1, 0, 0
+)
+
+
+hrp.CFrame = targetCFrame
+
+
+   end,
+})
+
 local DiscountedTab = Window:CreateTab("Discounted", nil)
 local Section = DiscountedTab:CreateSection("Discounted")

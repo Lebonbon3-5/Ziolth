@@ -5,7 +5,7 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 
 local Window = Rayfield:CreateWindow({
-	Name = "Trade Tower Script",
+	Name = "Trade Tower Script(outdated no more updates)",
 	LoadingTitle = "autofarm and more",
 	LoadingSubtitle = "by patrickstar9730",
 	ConfigurationSaving = {

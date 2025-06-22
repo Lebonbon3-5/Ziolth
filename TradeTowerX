@@ -324,6 +324,32 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("StoreA
       end
    end,
 })
+
+local autoMaxCaseEnabled = false
+-- +1 case opening uppgrade
+local Toggle = UpgradesTab:CreateToggle({
+   Name = "+1 CASES UPGRADE",
+   CurrentValue = false,
+   Flag = "Toggle8",
+   Callback = function(Value)
+      autoMaxCaseEnabled = Value
+
+     
+      if autoMaxCaseEnabled then
+         task.spawn(function()
+            while autoMaxCaseEnabled do
+               local args = {
+	"Upgrade",
+	"PumpkinCases"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("StoreActions"):InvokeServer(unpack(args))
+               task.wait(0.01)
+            end
+         end)
+      end
+   end,
+})
+
 -- quicksell tab
 local quicksellTab = Window:CreateTab("QUICKSELL")
 local Section = quicksellTab:CreateSection("quicksell under 500m")

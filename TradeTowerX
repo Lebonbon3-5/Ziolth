@@ -467,6 +467,31 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OpenCa
    end,
 })
 
+local autoExclusiveEnabled = false
+-- fastcase Exclusive
+local Toggle = fastcaseTab:CreateToggle({
+   Name = "FASTCASE  Exclusive,
+   CurrentValue = false,
+   Flag = "Toggle23", 
+   Callback = function(Value)
+      autoExclusiveEnabled = Value
+
+   
+      if autoExclusiveEnabled then
+         task.spawn(function()
+            while autoExclusiveEnabled do
+               local args = {
+	"Exclusive"
+}
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OpenCase"):InvokeServer(unpack(args))
+               task.wait(0.01)
+            end
+         end)
+      end
+   end,
+})
+
+
 local MiscTab = Window:CreateTab("Misc")
 local Section = MiscTab:CreateSection("Misc")
 

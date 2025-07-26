@@ -470,7 +470,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OpenCa
 local autoExclusiveEnabled = false
 -- fastcase Exclusive
 local Toggle = fastcaseTab:CreateToggle({
-   Name = "FASTCASE  Exclusive",
+   Name = "FASTCASE Exclusive",
    CurrentValue = false,
    Flag = "Toggle23", 
    Callback = function(Value)

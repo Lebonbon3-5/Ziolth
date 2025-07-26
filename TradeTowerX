@@ -152,7 +152,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OpenCa
 
                             local args = {
 	"SellUnder",
-	500000000
+	400000
 }
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("InventoryActions"):InvokeServer(unpack(args))          
                task.wait(0.01)
@@ -352,12 +352,12 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("StoreA
 
 -- quicksell tab
 local quicksellTab = Window:CreateTab("QUICKSELL")
-local Section = quicksellTab:CreateSection("quicksell under 500m")
+local Section = quicksellTab:CreateSection("quicksell under 400k")
 
 local autoSellEnabled = false
--- quicksell under 500m toggle
+-- quicksell under 400k toggle
 local Toggle = quicksellTab:CreateToggle({
-   Name = "QUICKSELL UNDER 500m",
+   Name = "QUICKSELL UNDER 400k",
    CurrentValue = false,
    Flag = "Toggle10", 
    Callback = function(Value)
@@ -369,7 +369,7 @@ local Toggle = quicksellTab:CreateToggle({
             while autoSellEnabled do
                local args = {
 	"SellUnder",
-	500000000
+	400000
 }
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("InventoryActions"):InvokeServer(unpack(args))   
                task.wait(0.01) -- Small delay to prevent overload
@@ -379,13 +379,13 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Invent
    end,
 })
 
--- quicksell under 500m button
+-- quicksell under 400k button
 local Button = quicksellTab:CreateButton({
-   Name = "quicksell all under 500m",
+   Name = "quicksell all under 400k",
    Callback = function()
    local args = {
 	"SellUnder",
-	500000000
+	400000
 }
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("InventoryActions"):InvokeServer(unpack(args))
    end,
@@ -663,7 +663,7 @@ local Toggle = MiscTab:CreateToggle({
 
             pcall(function()
                Lighting.GlobalShadows = false
-               Lighting.FogEnd = 500000000
+               Lighting.FogEnd = 400000
                Lighting.Brightness = 0
                Lighting.ExposureCompensation = -2
             end)

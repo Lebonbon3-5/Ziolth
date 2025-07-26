@@ -211,7 +211,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("StoreA
 
                             local args = {
 	"SellUnder",
-	600000
+	400000
 }
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("InventoryActions"):InvokeServer(unpack(args))
                task.wait(0.01) -- Small delay to prevent overload

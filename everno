@@ -1,0 +1,2 @@
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Lebonbon3-5/Ziolth/refs/heads/main/project0'))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Lebonbon3-5/Ziolth/refs/heads/main/Imperviable'))()
